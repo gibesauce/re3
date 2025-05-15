@@ -1,11 +1,11 @@
-<img src="https://github.com/gibesauce/re3/blob/master/res/images/logo_1024.png?raw=true" alt="re3 logo" width="200">
+<img src="https://github.com/gibesauce/re3/blob/liberty/res/images/logo_1024.png?raw=true" alt="re3 logo" width="200">
 
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fgibesauce%2Fre3%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/gibesauce/re3/goto?ref=master)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fgibesauce%2Fre3%2Fbadge%3Fref%3Dliberty&style=flat)](https://actions-badge.atrox.dev/gibesauce/re3/goto?ref=liberty)
 <a href="https://discord.gg/RFNbjsUMGg"><img src="https://img.shields.io/badge/discord-join-7289DA.svg?logo=discord&longCache=true&style=flat" /></a>
 
 ## Intro
 
-In this repository you'll find the fully reversed source code for GTA III ([master](https://github.com/gibesauce/re3/tree/master/) branch) and GTA VC ([miami](https://github.com/gibesauce/re3/tree/miami/) branch).
+In this repository you'll find the fully reversed source code for GTA III ([liberty](https://github.com/gibesauce/re3/tree/liberty/) branch) and GTA VC ([miami](https://github.com/gibesauce/re3/tree/miami/) branch).
 
 It has been tested and works on Windows, Linux, MacOS and FreeBSD, on x86, amd64, arm and arm64.\
 Rendering is handled either by original RenderWare (D3D8)
@@ -22,11 +22,11 @@ We cannot build for PS2 or Xbox yet. If you're interested in doing so, get in to
 
 - re3 requires PC game assets to work, so you **must** own [a copy of GTA III](https://store.steampowered.com/app/12100/Grand_Theft_Auto_III/).
 - Build re3 or download the latest build:
-  - [Windows D3D9 MSS 32bit](https://nightly.link/gibesauce/re3/workflows/re3_msvc_x86/master/re3_Release_win-x86-librw_d3d9-mss.zip)
-  - [Windows D3D9 64bit](https://nightly.link/gibesauce/re3/workflows/re3_msvc_amd64/master/re3_Release_win-amd64-librw_d3d9-oal.zip)
-  - [Windows OpenGL 64bit](https://nightly.link/gibesauce/re3/workflows/re3_msvc_amd64/master/re3_Release_win-amd64-librw_gl3_glfw-oal.zip)
-  - [Linux 64bit](https://nightly.link/gibesauce/re3/workflows/build-cmake-conan/master/ubuntu-18.04-gl3.zip)
-  - [MacOS 64bit x86-64](https://nightly.link/gibesauce/re3/workflows/build-cmake-conan/master/macos-latest-gl3.zip)
+  - [Windows D3D9 MSS 32bit](https://nightly.link/gibesauce/re3/workflows/re3_msvc_x86/liberty/re3_Release_win-x86-librw_d3d9-mss.zip)
+  - [Windows D3D9 64bit](https://nightly.link/gibesauce/re3/workflows/re3_msvc_amd64/liberty/re3_Release_win-amd64-librw_d3d9-oal.zip)
+  - [Windows OpenGL 64bit](https://nightly.link/gibesauce/re3/workflows/re3_msvc_amd64/liberty/re3_Release_win-amd64-librw_gl3_glfw-oal.zip)
+  - [Linux 64bit](https://nightly.link/gibesauce/re3/workflows/build-cmake-conan/liberty/ubuntu-18.04-gl3.zip)
+  - [MacOS 64bit x86-64](https://nightly.link/gibesauce/re3/workflows/build-cmake-conan/liberty/macos-latest-gl3.zip)
 - Extract the downloaded zip over your GTA 3 directory and run re3. The zip includes the binary, updated and additional gamefiles and in case of OpenAL the required dlls.
 
 ## Screenshots
@@ -109,10 +109,10 @@ For Linux using premake, proceed: [Building on Linux](https://github.com/gibesau
 
 Install python and conan, and then run build.
 ```
-conan export vendor/librw librw/master@
+conan export vendor/librw librw/liberty@
 mkdir build
 cd build
-conan install .. re3/master@ -if build -o re3:audio=openal -o librw:platform=gl3 -o librw:gl3_gfxlib=glfw --build missing -s re3:build_type=RelWithDebInfo -s librw:build_type=RelWithDebInfo
+conan install .. re3/liberty@ -if build -o re3:audio=openal -o librw:platform=gl3 -o librw:gl3_gfxlib=glfw --build missing -s re3:build_type=RelWithDebInfo -s librw:build_type=RelWithDebInfo
 conan build .. -if build -bf build -pf package
 ```
 </details>
@@ -142,7 +142,7 @@ Microsoft recently discontinued its downloads of the DX9 SDK. You can download a
 
 > :information_source: premake has an `--with-lto` option if you want the project to be compiled with Link Time Optimization.
 
-> :information_source: There are various settings in [config.h](https://github.com/gibesauce/re3/tree/master/src/core/config.h), you may want to take a look there.
+> :information_source: There are various settings in [config.h](https://github.com/gibesauce/re3/tree/liberty/src/core/config.h), you may want to take a look there.
 
 > :information_source: re3 uses completely homebrew RenderWare-replacement rendering engine; [librw](https://github.com/aap/librw/). librw comes as submodule of re3, but you also can use LIBRW enviorenment variable to specify path to your own librw.
 
@@ -163,7 +163,7 @@ We accept only these kinds of PRs;
 - Translation fixes, for languages original game supported
 - Code that increase maintainability  
 
-We have a [Coding Style](https://github.com/gibesauce/re3/blob/master/CODING_STYLE.md) document that isn't followed or enforced very well.
+We have a [Coding Style](https://github.com/gibesauce/re3/blob/liberty/CODING_STYLE.md) document that isn't followed or enforced very well.
 
 Do not use features from C++11 or later.
 
