@@ -1,9 +1,11 @@
-<img src="https://github.com/gibesauce/re3/blob/main/res/images/liberty/logo_1024.png?raw=true" alt="re3 logo" width="200">
-<img src="https://github.com/gibesauce/re3/blob/main/res/images/miami/logo_1024.png?raw=true" alt="reVC logo" width="200">
+<p>
+  <img src="https://github.com/gibesauce/re3/blob/main/res/images/liberty/logo_1024.png?raw=true" alt="re3 logo" width="200" hspace="10" >
+  <img src="https://github.com/gibesauce/re3/blob/main/res/images/miami/logo_1024.png?raw=true" alt="reVC logo" width="200" hspace="10" >
+</p>
 
 ## Intro
 
-In this repository you'll find the fully reversed source code for GTA III ([liberty](https://github.com/gibesauce/re3/main/src/liberty)) and GTA VC ([miami](https://github.com/gibesauce/re3/src/miami)).
+In this repository you'll find the fully reversed source code for GTA III ([liberty](https://github.com/gibesauce/re3/tree/main/src/liberty)) and GTA VC ([miami](https://github.com/gibesauce/re3/tree/src/miami)).
 
 It has been tested and works on Windows, Linux, MacOS and FreeBSD, on x86, amd64, arm and arm64.\
 Rendering is handled either by original RenderWare (D3D8)
