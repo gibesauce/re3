@@ -121,17 +121,17 @@ typedef ptrdiff_t ssize_t;
 #include "config.h"
 
 #ifdef PED_SKIN
-#include <rphanim.h>
-#include <rpskin.h>
+	#include <rphanim.h>
+	#include <rpskin.h>
 #endif
 
 #ifdef __GNUC__
-#define TYPEALIGN(n) __attribute__ ((aligned (n)))
+	#define TYPEALIGN(n) __attribute__ ((aligned (n)))
 #else
 #ifdef _MSC_VER
-#define TYPEALIGN(n) __declspec(align(n))
+	#define TYPEALIGN(n) __declspec(align(n))
 #else
-#define TYPEALIGN(n)	// unknown compiler...ignore
+	#define TYPEALIGN(n)	// unknown compiler...ignore
 #endif
 #endif
 

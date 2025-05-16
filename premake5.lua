@@ -1,4 +1,17 @@
 newoption {
+    trigger = "game",
+    value = "NAME",
+    description = "Which game to build: liberty (GTA III) or miami (Vice City)",
+    allowed = {
+        { "liberty", "GTA III" },
+        { "miami",   "GTA Vice City" }
+    },
+    default = "liberty"
+}
+
+src = "src/" .. (_OPTIONS["game"] or "liberty")
+
+newoption {
 	trigger     = "glfwdir64",
 	value       = "PATH",
 	description = "Directory of glfw",
@@ -44,6 +57,16 @@ newoption {
 
 require("autoconf")
 
+local game = _OPTIONS["game"] or "liberty"
+
+local projectName
+if game == "liberty" then
+    projectName = "re3"       -- GTA III
+else
+    projectName = "reVC"      -- Vice City
+end
+
+
 if(_OPTIONS["with-librw"]) then
 	Librw = "vendor/librw"
 else
@@ -68,10 +91,10 @@ function getarch(a)
 	return a
 end
 
-workspace "re3"
+workspace (projectName)
 	language "C++"
 	configurations { "Debug", "Release" }
-	startproject "re3"
+	startproject (projectName)
 	location "build"
 	symbols "Full"
 	staticruntime "off"
@@ -243,67 +266,67 @@ local function addSrcFiles( prefix )
 	return prefix .. "/*cpp", prefix .. "/*.h", prefix .. "/*.c", prefix .. "/*.ico", prefix .. "/*.rc"
 end
 
-project "re3"
+project(projectName)
 	kind "WindowedApp"
-	targetname "re3"
+	targetname(projectName)
 	targetdir "bin/%{cfg.platform}/%{cfg.buildcfg}"
 
 	if(_OPTIONS["with-librw"]) then
 		dependson "librw"
 	end
 
-	files { addSrcFiles("src") }
-	files { addSrcFiles("src/animation") }
-	files { addSrcFiles("src/audio") }
-	files { addSrcFiles("src/audio/eax") }
-	files { addSrcFiles("src/audio/oal") }
-	files { addSrcFiles("src/buildings") }
-	files { addSrcFiles("src/collision") }
-	files { addSrcFiles("src/control") }
-	files { addSrcFiles("src/core") }
-	files { addSrcFiles("src/entities") }
-	files { addSrcFiles("src/math") }
-	files { addSrcFiles("src/modelinfo") }
-	files { addSrcFiles("src/objects") }
-	files { addSrcFiles("src/peds") }
-	files { addSrcFiles("src/renderer") }
-	files { addSrcFiles("src/rw") }
-	files { addSrcFiles("src/save") }
-	files { addSrcFiles("src/skel") }
-	files { addSrcFiles("src/skel/glfw") }
-	files { addSrcFiles("src/text") }
-	files { addSrcFiles("src/vehicles") }
-	files { addSrcFiles("src/weapons") }
-	files { addSrcFiles("src/extras") }
+	files { addSrcFiles(src) }
+	files { addSrcFiles(src .. "/animation") }
+	files { addSrcFiles(src .. "/audio") }
+	files { addSrcFiles(src .. "/audio/eax") }
+	files { addSrcFiles(src .. "/audio/oal") }
+	files { addSrcFiles(src .. "/buildings") }
+	files { addSrcFiles(src .. "/collision") }
+	files { addSrcFiles(src .. "/control") }
+	files { addSrcFiles(src .. "/core") }
+	files { addSrcFiles(src .. "/entities") }
+	files { addSrcFiles(src .. "/math") }
+	files { addSrcFiles(src .. "/modelinfo") }
+	files { addSrcFiles(src .. "/objects") }
+	files { addSrcFiles(src .. "/peds") }
+	files { addSrcFiles(src .. "/renderer") }
+	files { addSrcFiles(src .. "/rw") }
+	files { addSrcFiles(src .. "/save") }
+	files { addSrcFiles(src .. "/skel") }
+	files { addSrcFiles(src .. "/skel/glfw") }
+	files { addSrcFiles(src .. "/text") }
+	files { addSrcFiles(src .. "/vehicles") }
+	files { addSrcFiles(src .. "/weapons") }
+	files { addSrcFiles(src .. "/extras") }
 	if(not _OPTIONS["no-git-hash"]) then
-		files { "src/extras/GitSHA1.cpp" } -- this won't be in repo in first build
+		files { src .. "/extras/GitSHA1.cpp" } -- this won't be in repo in first build
 	else
-		removefiles { "src/extras/GitSHA1.cpp" } -- but it will be everytime after
+		removefiles { src .. "/extras/GitSHA1.cpp" } -- but it will be everytime after
 	end
 
-	includedirs { "src" }
-	includedirs { "src/animation" }
-	includedirs { "src/audio" }
-	includedirs { "src/audio/eax" }
-	includedirs { "src/audio/oal" }
-	includedirs { "src/buildings" }
-	includedirs { "src/collision" }
-	includedirs { "src/control" }
-	includedirs { "src/core" }
-	includedirs { "src/entities" }
-	includedirs { "src/math" }
-	includedirs { "src/modelinfo" }
-	includedirs { "src/objects" }
-	includedirs { "src/peds" }
-	includedirs { "src/renderer" }
-	includedirs { "src/rw" }
-	includedirs { "src/save/" }
-	includedirs { "src/skel/" }
-	includedirs { "src/skel/glfw" }
-	includedirs { "src/text" }
-	includedirs { "src/vehicles" }
-	includedirs { "src/weapons" }
-	includedirs { "src/extras" }
+	includedirs { src }
+	includedirs { src .. "/animation" }
+	includedirs { src .. "/audio" }
+	includedirs { src .. "/audio/eax" }
+	includedirs { src .. "/audio/oal" }
+	includedirs { src .. "/buildings" }
+	includedirs { src .. "/collision" }
+	includedirs { src .. "/control" }
+	includedirs { src .. "/core" }
+	includedirs { src .. "/entities" }
+	includedirs { src .. "/math" }
+	includedirs { src .. "/modelinfo" }
+	includedirs { src .. "/objects" }
+	includedirs { src .. "/peds" }
+	includedirs { src .. "/renderer" }
+	includedirs { src .. "/rw" }
+	includedirs { src .. "/save/" }
+	includedirs { src .. "/skel/" }
+	includedirs { src .. "/skel/glfw" }
+	includedirs { src .. "/text" }
+	includedirs { src .. "/vehicles" }
+	includedirs { src .. "/weapons" }
+	includedirs { src .. "/extras" }
 
 	if(not _OPTIONS["no-git-hash"]) then
 		defines { "USE_OUR_VERSIONING" }
@@ -341,8 +364,8 @@ project "re3"
 	end
 
 	filter "platforms:win*"
-		files { addSrcFiles("src/skel/win") }
-		includedirs { "src/skel/win" }
+		files { addSrcFiles(src .. "/skel/win") }
+		includedirs { src .. "/skel/win" }
 		buildoptions { "/Zc:sizedDealloc-" }
 		linkoptions "/SAFESEH:NO"
 		characterset ("MBCS")
@@ -356,12 +379,12 @@ project "re3"
 			staticruntime "on"
 		end
 		if(not _OPTIONS["no-git-hash"]) then
-			prebuildcommands { '"%{prj.location}..\\printHash.bat" "%{prj.location}..\\src\\extras\\GitSHA1.cpp"' }
+			prebuildcommands { '"%{prj.location}..\\printHash.bat" "%{prj.location}..\\src\\${_OPTIONS["game"]}\\\\extras\\GitSHA1.cpp"' }
 		end
 
 	filter "platforms:not win*"
 		if(not _OPTIONS["no-git-hash"]) then
-			prebuildcommands { '"%{prj.location}/../printHash.sh" "%{prj.location}/../src/extras/GitSHA1.cpp"' }
+			prebuildcommands { '"%{prj.location}/../printHash.sh" "%{prj.location}/../src/${_OPTIONS["game"]}/extras/GitSHA1.cpp"' }
 		end
 
 	filter "platforms:win*glfw*"
@@ -428,8 +451,8 @@ project "re3"
 
 	filter "platforms:*librw*"
 		defines { "LIBRW" }
-		files { addSrcFiles("src/fakerw") }
-		includedirs { "src/fakerw" }
+		files { addSrcFiles(src .. "/fakerw") }
+		includedirs { src .. "/fakerw" }
 		includedirs { Librw }
 		if(_OPTIONS["with-librw"]) then
 			libdirs { "vendor/librw/lib/%{cfg.platform}/%{cfg.buildcfg}" }
