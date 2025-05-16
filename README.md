@@ -14,7 +14,7 @@ We cannot build for PS2 or Xbox yet. If you're interested in doing so, get in to
 
 ## Installation
 
-# GTA 3
+### GTA 3
 - re3 requires PC game assets to work, so you **must** own [a copy of GTA III](https://store.steampowered.com/app/12100/Grand_Theft_Auto_III/).
 - Build re3 or download the latest build:
   - [Windows D3D9 MSS 32bit](https://nightly.link/gibesauce/re3/workflows/re3_msvc_x86/liberty/re3_Release_win-x86-librw_d3d9-mss.zip)
@@ -24,7 +24,7 @@ We cannot build for PS2 or Xbox yet. If you're interested in doing so, get in to
   - [MacOS 64bit x86-64](https://nightly.link/gibesauce/re3/workflows/build-cmake-conan/liberty/macos-latest-gl3.zip)
 - Extract the downloaded zip over your GTA 3 directory and run re3. The zip includes the binary, updated and additional gamefiles and in case of OpenAL the required dlls.
 
-# GTA Vice City
+### GTA Vice City
 - reVC requires game assets to work, so you **must** own [a copy of GTA Vice City](https://store.steampowered.com/app/12110/Grand_Theft_Auto_Vice_City/).
 - Build reVC or download the latest build:
   - [Windows D3D9 MSS 32bit](https://nightly.link/gibesauce/re3/workflows/reVC_msvc_x86/miami/reVC_Release_win-x86-librw_d3d9-mss.zip)
@@ -36,13 +36,13 @@ We cannot build for PS2 or Xbox yet. If you're interested in doing so, get in to
 
 ## Screenshots
 
-# GTA 3
+### GTA 3
 ![re3 2021-02-11 22-57-03-23](https://user-images.githubusercontent.com/1521437/107704085-fbdabd00-6cbc-11eb-8406-8951a80ccb16.png)
 ![re3 2021-02-11 22-43-44-98](https://user-images.githubusercontent.com/1521437/107703339-cbdeea00-6cbb-11eb-8f0b-07daa105d470.png)
 ![re3 2021-02-11 22-46-33-76](https://user-images.githubusercontent.com/1521437/107703343-cd101700-6cbb-11eb-9ccd-012cb90524b7.png)
 ![re3 2021-02-11 22-50-29-54](https://user-images.githubusercontent.com/1521437/107703348-d00b0780-6cbb-11eb-8afd-054249c2b95e.png)
 
-# GTA Vice City
+### GTA Vice City
 ![screen_ 1613087332](https://user-images.githubusercontent.com/1521437/107714111-f84f3200-6ccc-11eb-902e-d757481d579a.png)
 ![screen_ 1613086852](https://user-images.githubusercontent.com/1521437/107714115-fa18f580-6ccc-11eb-9de5-eb4cd04865d3.png)
 ![screen_ 1613086989](https://user-images.githubusercontent.com/1521437/107714103-f38a7e00-6ccc-11eb-88a3-c8c2033c51d6.png)
@@ -182,7 +182,7 @@ Do not use features from C++11 or later.
 
 ## History
 
-# ** All credits goes to re3 team and contributors **
+### ** All credits goes to re3 team and contributors **
 
 re3 was started sometime in the spring of 2018,
 initially as a way to test reversed collision and physics code
