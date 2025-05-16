@@ -1,25 +1,20 @@
-<img src="https://github.com/gibesauce/re3/blob/liberty/res/images/logo_1024.png?raw=true" alt="re3 logo" width="200">
-
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fgibesauce%2Fre3%2Fbadge%3Fref%3Dliberty&style=flat)](https://actions-badge.atrox.dev/gibesauce/re3/goto?ref=liberty)
-<a href="https://discord.gg/RFNbjsUMGg"><img src="https://img.shields.io/badge/discord-join-7289DA.svg?logo=discord&longCache=true&style=flat" /></a>
+<img src="https://github.com/gibesauce/re3/blob/main/res/images/liberty/logo_1024.png?raw=true" alt="re3 logo" width="200">
+<img src="https://github.com/gibesauce/re3/blob/main/res/images/miami/logo_1024.png?raw=true" alt="reVC logo" width="200">
 
 ## Intro
 
-In this repository you'll find the fully reversed source code for GTA III ([liberty](https://github.com/gibesauce/re3/tree/liberty/) branch) and GTA VC ([miami](https://github.com/gibesauce/re3/tree/miami/) branch).
+In this repository you'll find the fully reversed source code for GTA III ([liberty](https://github.com/gibesauce/re3/main/src/liberty)) and GTA VC ([miami](https://github.com/gibesauce/re3/src/miami)).
 
 It has been tested and works on Windows, Linux, MacOS and FreeBSD, on x86, amd64, arm and arm64.\
 Rendering is handled either by original RenderWare (D3D8)
 or the reimplementation [librw](https://github.com/aap/librw) (D3D9, OpenGL 2.1 or above, OpenGL ES 2.0 or above).\
 Audio is done with MSS (using dlls from original GTA) or OpenAL.
 
-The project has also been ported to the [Nintendo Switch](https://github.com/AGraber/re3-nx/),
-[Playstation Vita](https://github.com/Rinnegatamante/re3) and
-[Nintendo Wii U](https://github.com/GaryOderNichts/re3-wiiu/).
-
 We cannot build for PS2 or Xbox yet. If you're interested in doing so, get in touch with us.
 
 ## Installation
 
+# GTA 3
 - re3 requires PC game assets to work, so you **must** own [a copy of GTA III](https://store.steampowered.com/app/12100/Grand_Theft_Auto_III/).
 - Build re3 or download the latest build:
   - [Windows D3D9 MSS 32bit](https://nightly.link/gibesauce/re3/workflows/re3_msvc_x86/liberty/re3_Release_win-x86-librw_d3d9-mss.zip)
@@ -29,12 +24,29 @@ We cannot build for PS2 or Xbox yet. If you're interested in doing so, get in to
   - [MacOS 64bit x86-64](https://nightly.link/gibesauce/re3/workflows/build-cmake-conan/liberty/macos-latest-gl3.zip)
 - Extract the downloaded zip over your GTA 3 directory and run re3. The zip includes the binary, updated and additional gamefiles and in case of OpenAL the required dlls.
 
+# GTA Vice City
+- reVC requires game assets to work, so you **must** own [a copy of GTA Vice City](https://store.steampowered.com/app/12110/Grand_Theft_Auto_Vice_City/).
+- Build reVC or download the latest build:
+  - [Windows D3D9 MSS 32bit](https://nightly.link/gibesauce/re3/workflows/reVC_msvc_x86/miami/reVC_Release_win-x86-librw_d3d9-mss.zip)
+  - [Windows D3D9 64bit](https://nightly.link/gibesauce/re3/workflows/reVC_msvc_amd64/miami/reVC_Release_win-amd64-librw_d3d9-oal.zip)
+  - [Windows OpenGL 64bit](https://nightly.link/gibesauce/re3/workflows/reVC_msvc_amd64/miami/reVC_Release_win-amd64-librw_gl3_glfw-oal.zip)
+  - [Linux 64bit](https://nightly.link/gibesauce/re3/workflows/build-cmake-conan/miami/ubuntu-18.04-gl3.zip)
+  - [MacOS 64bit x86-64](https://nightly.link/gibesauce/re3/workflows/build-cmake-conan/miami/macos-latest-gl3.zip)
+- Extract the downloaded zip over your GTA VC directory and run reVC. The zip includes the binary, updated and additional gamefiles and in case of OpenAL the required dlls.
+
 ## Screenshots
 
+# GTA 3
 ![re3 2021-02-11 22-57-03-23](https://user-images.githubusercontent.com/1521437/107704085-fbdabd00-6cbc-11eb-8406-8951a80ccb16.png)
 ![re3 2021-02-11 22-43-44-98](https://user-images.githubusercontent.com/1521437/107703339-cbdeea00-6cbb-11eb-8f0b-07daa105d470.png)
 ![re3 2021-02-11 22-46-33-76](https://user-images.githubusercontent.com/1521437/107703343-cd101700-6cbb-11eb-9ccd-012cb90524b7.png)
 ![re3 2021-02-11 22-50-29-54](https://user-images.githubusercontent.com/1521437/107703348-d00b0780-6cbb-11eb-8afd-054249c2b95e.png)
+
+# GTA Vice City
+![screen_ 1613087332](https://user-images.githubusercontent.com/1521437/107714111-f84f3200-6ccc-11eb-902e-d757481d579a.png)
+![screen_ 1613086852](https://user-images.githubusercontent.com/1521437/107714115-fa18f580-6ccc-11eb-9de5-eb4cd04865d3.png)
+![screen_ 1613086989](https://user-images.githubusercontent.com/1521437/107714103-f38a7e00-6ccc-11eb-88a3-c8c2033c51d6.png)
+![screen_ 1613087193](https://user-images.githubusercontent.com/1521437/107714106-f4bbab00-6ccc-11eb-96a9-13821d9b9684.png)
 
 ## Improvements
 
@@ -43,26 +55,26 @@ They can be configured in `core/config.h`.
 Some of them can be toggled at runtime, some cannot.
 
 * Fixed a lot of smaller and bigger bugs
-* User files (saves and settings) stored in GTA root directory
-* Settings stored in re3.ini file instead of gta3.set
+* User files (saves and settings) stored in the root directory
+* Settings stored in re3.ini (GTA III) reVC.ini (GTA Vice City) file instead of gta3.set (GTA 3) gta_vc.set (GTA Vice City)
 * Debug menu to do and change various things (Ctrl-M to open)
 * Debug camera (Ctrl-B to toggle)
-* Rotatable camera
+* Rotatable camera (Similar to GTA San Andreas)
 * XInput controller support (Windows)
 * No loading screens between islands ("map memory usage" in menu)
-* Skinned ped support (models from Xbox or Mobile)
+* (GTA 3) Skinned ped support (models from Xbox or Mobile)
 * Rendering
   * Widescreen support (properly scaled HUD, Menu and FOV)
   * PS2 MatFX (vehicle reflections)
   * PS2 alpha test (better rendering of transparency)
-  * PS2 particles
+  * (GTA 3) PS2 particles
   * Xbox vehicle rendering
   * Xbox world lightmap rendering (needs Xbox map)
   * Xbox ped rim light
   * Xbox screen rain droplets
   * More customizable colourfilter
 * Menu
-  * Map
+  * (GTA 3) Interactive Map
   * More options
   * Controller configuration menu
   * ...
@@ -169,6 +181,8 @@ Do not use features from C++11 or later.
 
 
 ## History
+
+# ** All credits goes to re3 team and contributors **
 
 re3 was started sometime in the spring of 2018,
 initially as a way to test reversed collision and physics code
